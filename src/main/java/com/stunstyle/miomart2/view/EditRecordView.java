@@ -213,7 +213,7 @@ public class EditRecordView extends GridPane {
                     Double productSellingPrice = Double.parseDouble(editProductSellingPrice.getText().replaceAll(",", "."));
                     Integer productQuantity = Integer.parseInt(editProductQuantity.getText().replaceAll(",", "."));
                     Record currentRecord = new Record(new Product(productName,
-                            productBuyingPrice, productSellingPrice), productQuantity);
+                            productBuyingPrice, productSellingPrice), productQuantity, presenter.getDateOfRecord());
                     if (!presenter.productExistsInProductTable(editProduct.getText())) {
                         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
                         Text dialogText = new Text("Product " + editProduct.getText() + " not found in DB. Do you want to add it?");
