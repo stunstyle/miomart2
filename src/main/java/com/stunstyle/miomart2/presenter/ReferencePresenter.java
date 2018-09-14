@@ -16,6 +16,8 @@ import javafx.util.Callback;
 
 import java.time.LocalDate;
 import java.util.Iterator;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class ReferencePresenter {
     private ReferenceView view;
@@ -41,14 +43,7 @@ public class ReferencePresenter {
             allRecordsForProduct.addAll(recordService.getAllRecordsForDate(date));
         }
 
-        for(Iterator<Record> it = allRecordsForProduct.iterator(); it.hasNext(); ) {
-            Record r = it.next();
-            if(!r.getProduct().getName().equals(productName)) {
-                it.remove();
-            }
-        }
-
-        allRecordsForProduct.stream().filter(record -> record.getProduct().getName().equals(productName));
+        allRecordsForProduct.removeIf(r -> !r.getProduct().getName().equals(productName));
         ListView<Record> listView = new ListView<>(allRecordsForProduct);
         listView.setCellFactory(new Callback<ListView<Record>, ListCell<Record>>() {
                                     @Override
