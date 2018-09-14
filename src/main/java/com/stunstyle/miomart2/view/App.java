@@ -6,8 +6,8 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class App extends Application {
-    private int DEFAULT_APP_HEIGHT = 768;
-    private int DEFAULT_APP_WIDTH = 1024;
+    private final int DEFAULT_APP_HEIGHT = 768;
+    private final int DEFAULT_APP_WIDTH = 1024;
 
     public static void main(String[] args) {
         launch(args);
