@@ -1,12 +1,11 @@
 package com.stunstyle.miomart2.view;
 
-import com.stunstyle.miomart2.presenter.ReferencePresenter;
+import com.stunstyle.miomart2.presenter.CreateReportPresenter;
 import com.stunstyle.miomart2.util.SimpleDatePicker;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableSet;
 import javafx.geometry.Insets;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
@@ -15,19 +14,18 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
-import javafx.stage.Stage;
 import org.controlsfx.control.textfield.TextFields;
 
 import java.time.LocalDate;
 
-public class ReferenceView extends GridPane {
-    private ReferencePresenter presenter;
+public class CreateReportView extends GridPane {
+    private CreateReportPresenter presenter;
 
-    public ReferenceView() {
+    public CreateReportView() {
         buildView();
     }
 
-    public void setPresenter(ReferencePresenter presenter) {
+    public void setPresenter(CreateReportPresenter presenter) {
         this.presenter = presenter;
     }
 

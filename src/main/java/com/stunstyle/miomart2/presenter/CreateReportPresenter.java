@@ -4,7 +4,7 @@ import com.stunstyle.miomart2.service.Product;
 import com.stunstyle.miomart2.service.ProductService;
 import com.stunstyle.miomart2.service.Record;
 import com.stunstyle.miomart2.service.RecordService;
-import com.stunstyle.miomart2.view.ReferenceView;
+import com.stunstyle.miomart2.view.CreateReportView;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.ObservableSet;
@@ -19,20 +19,20 @@ import javafx.stage.Stage;
 
 import java.time.LocalDate;
 
-public class ReferencePresenter {
-    private ReferenceView view;
+public class CreateReportPresenter {
+    private CreateReportView view;
     private MainPresenter mainPresenter;
     private RecordService recordService;
     private ProductService productService;
 
-    public ReferencePresenter(ReferenceView view, MainPresenter mainPresenter, RecordService recordService, ProductService productService) {
+    public CreateReportPresenter(CreateReportView view, MainPresenter mainPresenter, RecordService recordService, ProductService productService) {
         this.view = view;
         this.mainPresenter = mainPresenter;
         this.recordService = recordService;
         this.productService = productService;
     }
 
-    public ReferenceView getView() {
+    public CreateReportView getView() {
         return view;
     }
 
