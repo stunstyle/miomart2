@@ -2,6 +2,8 @@ package com.stunstyle.miomart2.service;
 
 import com.stunstyle.miomart2.db.DAO;
 import com.stunstyle.miomart2.db.DerbyDAO;
+import com.stunstyle.miomart2.util.SimpleTableNameConstructor;
+import com.stunstyle.miomart2.util.TableNameConstructor;
 
 import java.sql.*;
 import java.time.LocalDate;
@@ -45,7 +47,7 @@ public class SimpleRecordService implements RecordService {
             ps_select.setDate(1, Date.valueOf(date));
             ResultSet rs = ps_select.executeQuery();
             while (rs.next()) {
-                records.add(new Record(new Product(rs.getString(1), rs.getDouble(2), rs.getDouble(3)), rs.getInt(4)));
+                records.add(new Record(new Product(rs.getString(1), rs.getDouble(2), rs.getDouble(3)), rs.getInt(4), date));
             }
 
         } catch (SQLException e) {
