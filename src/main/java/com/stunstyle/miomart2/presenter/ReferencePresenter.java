@@ -4,17 +4,18 @@ import com.stunstyle.miomart2.service.Product;
 import com.stunstyle.miomart2.service.ProductService;
 import com.stunstyle.miomart2.service.Record;
 import com.stunstyle.miomart2.service.RecordService;
-import com.stunstyle.miomart2.util.RecordListViewCell;
 import com.stunstyle.miomart2.view.ReferenceView;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.ObservableSet;
+import javafx.geometry.Insets;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.control.cell.TextFieldTableCell;
+import javafx.scene.layout.GridPane;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import javafx.util.Callback;
 
 import java.time.LocalDate;
 
@@ -49,7 +50,7 @@ public class ReferencePresenter {
         TableColumn<Record, String> nameColumn = new TableColumn<>("Артикул");
         nameColumn.setCellValueFactory(recordStringCellDataFeatures -> {
             Record r = recordStringCellDataFeatures.getValue();
-            Product p =r.getProduct();
+            Product p = r.getProduct();
             return p.nameProperty();
         });
 
@@ -78,11 +79,33 @@ public class ReferencePresenter {
 
         recordTable.getColumns().addAll(nameColumn, quantityColumn, buyingPriceColumn, sellingPriceColumn, dateColumn);
 
+        GridPane reportGrid = new GridPane();
+        reportGrid.setPadding(new Insets(25,25,25,25));
+        reportGrid.setHgap(10);
+        reportGrid.setVgap(10);
+        reportGrid.add(recordTable, 0, 0);
+        GridPane.setColumnSpan(recordTable, 6);
+
+        Text totalTextTitle = new Text("Общо въведени:");
+        reportGrid.add(totalTextTitle, 1, 1);
+
+        Text totalQuantity = new Text();
+        totalQuantity.setText(String.valueOf(allRecordsForProduct.stream().mapToInt(Record::getQuantity).sum()));
+
+        Text totalBuyingPrice = new Text();
+        totalBuyingPrice.setText(String.valueOf(allRecordsForProduct.stream().map(Record::getProduct).mapToDouble(Product::getBuyingPrice).sum()));
+
+        Text totalSellingPrice = new Text();
+        totalSellingPrice.setText(String.valueOf(allRecordsForProduct.stream().map(Record::getProduct).mapToDouble(Product::getSellingPrice).sum()));
+
+        reportGrid.add(totalQuantity, 2,1);
+        reportGrid.add(totalBuyingPrice, 3, 1);
+        reportGrid.add(totalSellingPrice, 4, 1);
 
         Stage reportStage = new Stage();
         recordTable.prefHeightProperty().bind(reportStage.heightProperty());
         recordTable.prefWidthProperty().bind(reportStage.widthProperty());
-        Scene reportScene = new Scene(recordTable, 640, 480);
+        Scene reportScene = new Scene(reportGrid, 640, 480);
         reportStage.setScene(reportScene);
         reportStage.setTitle("Справка за " + productName + " от " + startDate + " до " + endDate + " - miomart2");
         reportStage.show();
