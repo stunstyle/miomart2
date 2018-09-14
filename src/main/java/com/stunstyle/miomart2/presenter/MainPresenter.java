@@ -13,7 +13,7 @@ public class MainPresenter {
     private PickDatePresenter pickDatePresenter;
     private EditRecordPresenter editRecordPresenter;
     private AboutPresenter aboutPresenter;
-    private ReferencePresenter referencePresenter;
+    private CreateReportPresenter createReportPresenter;
 
     public MainPresenter(MainView view) {
         this.view = view;
@@ -36,8 +36,8 @@ public class MainPresenter {
         this.editRecordPresenter = editRecordPresenter;
     }
 
-    public void setReferencePresenter(ReferencePresenter referencePresenter) {
-        this.referencePresenter = referencePresenter;
+    public void setCreateReportPresenter(CreateReportPresenter createReportPresenter) {
+        this.createReportPresenter = createReportPresenter;
     }
 
     public MainView getView() {
@@ -74,6 +74,6 @@ public class MainPresenter {
     }
 
     public void showReference() {
-        view.setContent(referencePresenter.getView());
+        view.setContent(createReportPresenter.getView());
     }
 }
