@@ -1,5 +1,6 @@
 package com.stunstyle.miomart2.presenter;
 
+import com.stunstyle.miomart2.service.Product;
 import com.stunstyle.miomart2.service.ProductService;
 import com.stunstyle.miomart2.service.Record;
 import com.stunstyle.miomart2.service.RecordService;
@@ -9,8 +10,9 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.ObservableSet;
 import javafx.scene.Scene;
-import javafx.scene.control.ListCell;
-import javafx.scene.control.ListView;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 
@@ -41,16 +43,46 @@ public class ReferencePresenter {
         }
 
         allRecordsForProduct.removeIf(r -> !r.getProduct().getName().equals(productName));
-        ListView<Record> listView = new ListView<>(allRecordsForProduct);
-        listView.setCellFactory(new Callback<ListView<Record>, ListCell<Record>>() {
-            @Override
-            public ListCell<Record> call(ListView<Record> recordListView) {
-                return new RecordListViewCell();
-            }
+
+        TableView<Record> recordTable = new TableView<>(allRecordsForProduct);
+
+        TableColumn<Record, String> nameColumn = new TableColumn<>("Артикул");
+        nameColumn.setCellValueFactory(recordStringCellDataFeatures -> {
+            Record r = recordStringCellDataFeatures.getValue();
+            Product p =r.getProduct();
+            return p.nameProperty();
         });
 
+        TableColumn<Record, Integer> quantityColumn = new TableColumn<>("Количество");
+        quantityColumn.setCellValueFactory(new PropertyValueFactory<>("quantity"));
+
+        TableColumn<Record, Number> buyingPriceColumn = new TableColumn<>("Покупна цена");
+        buyingPriceColumn.setCellValueFactory(recordNumberCellDataFeatures -> {
+            Record r = recordNumberCellDataFeatures.getValue();
+            Product p = r.getProduct();
+            return p.buyingPriceProperty();
+        });
+
+        TableColumn<Record, Number> sellingPriceColumn = new TableColumn<>("Продажна цена");
+        sellingPriceColumn.setCellValueFactory(recordNumberCellDataFeatures -> {
+            Record r = recordNumberCellDataFeatures.getValue();
+            Product p = r.getProduct();
+            return p.sellingPriceProperty();
+        });
+
+        TableColumn<Record, LocalDate> dateColumn = new TableColumn<>("Дата");
+        dateColumn.setCellValueFactory(recordLocalDateCellDataFeatures -> {
+            Record r = recordLocalDateCellDataFeatures.getValue();
+            return r.dateOfRecordProperty();
+        });
+
+        recordTable.getColumns().addAll(nameColumn, quantityColumn, buyingPriceColumn, sellingPriceColumn, dateColumn);
+
+
         Stage reportStage = new Stage();
-        Scene reportScene = new Scene(listView);
+        recordTable.prefHeightProperty().bind(reportStage.heightProperty());
+        recordTable.prefWidthProperty().bind(reportStage.widthProperty());
+        Scene reportScene = new Scene(recordTable, 640, 480);
         reportStage.setScene(reportScene);
         reportStage.setTitle("Справка за " + productName + " от " + startDate + " до " + endDate + " - miomart2");
         reportStage.show();

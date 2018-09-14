@@ -72,14 +72,13 @@ public class ReferenceView extends GridPane {
         DatePicker endDatePicker = new SimpleDatePicker(LocalDate.now());
         this.add(endDatePicker, 2, 3);
 
-        Button btn = new Button("click");
+        Button btn = new Button("Справка");
         this.add(btn, 3, 3);
 
         btn.setOnAction(actionEvent -> {
             presenter.showReport(chooseProduct.getText(), startDatePicker.getValue(), endDatePicker.getValue());
 
         });
-
 
 
         //Stage referenceStage = new Stage();
