@@ -39,13 +39,17 @@ public class MainView extends BorderPane {
         exitItem.setOnAction(actionEvent -> Platform.exit());
         fileMenu.getItems().addAll(manageProductsItem, browseOrEditItem, exitItem);
 
-        Menu viewMenu = new Menu("Отчет");
+        Menu referenceMenu = new Menu("Справка");
+        MenuItem referenceItem = new MenuItem("Справка...");
+        referenceMenu.getItems().add(referenceItem);
+        referenceItem.setOnAction(actionEvent -> {presenter.showReference();});
+
         Menu printMenu = new Menu("Принт");
         Menu helpMenu = new Menu("Помощ");
         MenuItem aboutItem = new MenuItem("Относно...");
         aboutItem.setOnAction(actionEvent -> presenter.showAbout());
         helpMenu.getItems().add(aboutItem);
-        menuBar.getMenus().addAll(fileMenu, viewMenu, printMenu, helpMenu);
+        menuBar.getMenus().addAll(fileMenu, referenceMenu, printMenu, helpMenu);
 
         contentArea = new BorderPane();
 

@@ -12,6 +12,7 @@ public class Miomart2AppFactory {
     private PickDatePresenter pickDatePresenter;
     private EditRecordPresenter editRecordPresenter;
     private AboutPresenter aboutPresenter;
+    private ReferencePresenter referencePresenter;
 
     private ProductService productService;
     private RecordService recordService;
@@ -25,6 +26,7 @@ public class Miomart2AppFactory {
             mainPresenter.setPickDatePresenter(getPickDatePresenter());
             mainPresenter.setEditRecordPresenter(getEditRecordPresenter());
             mainPresenter.setAboutPresenter(getAboutPresenter());
+            mainPresenter.setReferencePresenter(getReferencePresenter());
         }
         return mainPresenter;
     }
@@ -74,5 +76,14 @@ public class Miomart2AppFactory {
             productService = SimpleProductService.getInstance();
         }
         return productService;
+    }
+
+    private ReferencePresenter getReferencePresenter() {
+        if(referencePresenter == null){
+            ReferenceView view = new ReferenceView();
+            referencePresenter = new ReferencePresenter(view, mainPresenter, recordService, productService);
+            view.setPresenter(referencePresenter);
+        }
+        return referencePresenter;
     }
 }
