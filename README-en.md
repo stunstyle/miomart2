@@ -1,6 +1,7 @@
 # miomart2
 
 > Miomart2 is an app created to ease the workflow of small to medium grocery stores and to eliminate the need of manually writing on paper all bought/sold products and calculating their total values.
+<p align="right"> <a href="README-en.md"><img height=25 src="https://i.imgur.com/JidOLoi.png" alt="English"/></a> <a href="README.md">  <img height=25 src="https://i.imgur.com/SNGcmA9.png" alt="Bulgarian"/></a></p>
 <hr>
 
 ## Features
