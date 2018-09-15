@@ -77,14 +77,7 @@ public class CreateReportView extends GridPane {
             presenter.showReport(chooseProduct.getText(), startDatePicker.getValue(), endDatePicker.getValue());
 
         });
-
-
-        //Stage referenceStage = new Stage();
-       // referenceStage.setTitle("Справка - miomart2");
-
-       // Scene referenceScene = new Scene(this, 640, 480);
-       // referenceStage.setScene(referenceScene);
-        //referenceStage.show();
+        
     }
 
 
