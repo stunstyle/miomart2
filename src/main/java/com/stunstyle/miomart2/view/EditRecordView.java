@@ -153,7 +153,7 @@ public class EditRecordView extends GridPane {
             return p.nameProperty();
         });
 
-        TableColumn<Record, Integer> productQuantityCol = new TableColumn<>("Количество");
+        TableColumn<Record, Integer> productQuantityCol = new TableColumn<>("К-во");
         productQuantityCol.setCellValueFactory(new PropertyValueFactory<>("quantity"));
 
         productQuantityCol.setCellFactory(TextFieldTableCell.forTableColumn(new IntegerStringConverter())); // that's how it's done for integer cols
@@ -179,7 +179,7 @@ public class EditRecordView extends GridPane {
             return p.sellingPriceProperty();
         });
 
-        TableColumn<Record, Number> productSmallTotalCol = new TableColumn<>("A x C");
+        TableColumn<Record, Number> productSmallTotalCol = new TableColumn<>("К-во x Продажна цена");
         productSmallTotalCol.setCellValueFactory(cellData -> {
             Record r = cellData.getValue();
             return Bindings.createDoubleBinding(
@@ -240,9 +240,6 @@ public class EditRecordView extends GridPane {
 
         Label buyingPriceTotalLabel = new Label("A x B");
         this.add(buyingPriceTotalLabel, 4, 7);
-
-        Label sellingPriceTotalLabel = new Label("A x C");
-        this.add(sellingPriceTotalLabel, 5, 7);
 
         buyingPriceTotal = new Text("0.00");
         this.add(buyingPriceTotal, 4, 8);
