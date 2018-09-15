@@ -8,6 +8,7 @@ import com.stunstyle.miomart2.view.CreateReportView;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.ObservableSet;
+import javafx.geometry.HPos;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
@@ -35,7 +36,6 @@ public class CreateReportPresenter {
     public CreateReportView getView() {
         return view;
     }
-
 
     public void showReport(String productName, LocalDate startDate, LocalDate endDate) {
         ObservableList<Record> allRecordsForProduct = FXCollections.<Record>observableArrayList();
@@ -80,27 +80,26 @@ public class CreateReportPresenter {
         recordTable.getColumns().addAll(nameColumn, quantityColumn, buyingPriceColumn, sellingPriceColumn, dateColumn);
 
         GridPane reportGrid = new GridPane();
-        reportGrid.setPadding(new Insets(25,25,25,25));
+        reportGrid.setPadding(new Insets(25, 25, 25, 25));
         reportGrid.setHgap(10);
         reportGrid.setVgap(10);
         reportGrid.add(recordTable, 0, 0);
-        GridPane.setColumnSpan(recordTable, 6);
+        GridPane.setColumnSpan(recordTable, 5);
 
-        Text totalTextTitle = new Text("Общо въведени:");
-        reportGrid.add(totalTextTitle, 1, 1);
+        double totalBuyingPrice = allRecordsForProduct.stream().map(Record::getProduct).mapToDouble(Product::getBuyingPrice).sum();
+        double roundedBuyingPrice = Math.floor(totalBuyingPrice * 100) / 100;
 
-        Text totalQuantity = new Text();
-        totalQuantity.setText(String.valueOf(allRecordsForProduct.stream().mapToInt(Record::getQuantity).sum()));
+        double totalSellingPrice = allRecordsForProduct.stream().map(Record::getProduct).mapToDouble(Product::getSellingPrice).sum();
+        double roundedSellingPrice = Math.floor(totalSellingPrice * 100) / 100;
 
-        Text totalBuyingPrice = new Text();
-        totalBuyingPrice.setText(String.valueOf(allRecordsForProduct.stream().map(Record::getProduct).mapToDouble(Product::getBuyingPrice).sum()));
+        Text totalBuyingPriceText = new Text("Общо въведени: " + roundedBuyingPrice);
+        reportGrid.add(totalBuyingPriceText, 4, 1);
 
-        Text totalSellingPrice = new Text();
-        totalSellingPrice.setText(String.valueOf(allRecordsForProduct.stream().map(Record::getProduct).mapToDouble(Product::getSellingPrice).sum()));
+        Text totalSellingPriceText = new Text("Общо изведени: " + roundedSellingPrice);
+        reportGrid.add(totalSellingPriceText, 4, 2);
 
-        reportGrid.add(totalQuantity, 2,1);
-        reportGrid.add(totalBuyingPrice, 3, 1);
-        reportGrid.add(totalSellingPrice, 4, 1);
+        GridPane.setHalignment(totalBuyingPriceText, HPos.RIGHT);
+        GridPane.setHalignment(totalSellingPriceText, HPos.RIGHT);
 
         Stage reportStage = new Stage();
         recordTable.prefHeightProperty().bind(reportStage.heightProperty());
@@ -109,7 +108,6 @@ public class CreateReportPresenter {
         reportStage.setScene(reportScene);
         reportStage.setTitle("Справка за " + productName + " от " + startDate + " до " + endDate + " - miomart2");
         reportStage.show();
-
     }
 
     public ObservableSet<String> getAllProductNames() {
