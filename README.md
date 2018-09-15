@@ -1,6 +1,7 @@
 # miomart2
 
 > Miomart2 е софтуер, създаден с идеята да улесни работата на малките и средни хранителни магазини, и да елиминира нуждата от ръчно записване на хартия на всички въведени стоки в магазина, както и пресмятането на общата им стойност (при покупни и продажни цени).
+<p align="right"> <a href="README-en.md"><img height=25 src="https://i.imgur.com/JidOLoi.png" alt="English"/></a> <a href="README.md">  <img height=25 src="https://i.imgur.com/SNGcmA9.png" alt="Bulgarian"/></a></p>
 <hr>
 
 ## Характеристики
