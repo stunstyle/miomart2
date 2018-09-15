@@ -11,11 +11,11 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
 import static org.junit.Assert.*;
+
 
 public class SimpleRecordServiceTest {
     private static RecordService recordService;
@@ -29,9 +29,9 @@ public class SimpleRecordServiceTest {
     @Test
     public void getAllRecordsForDateTest() {
         LocalDate testDate = LocalDate.of(2018, 2, 2);
-        Record testRecord1 = new Record(new Product("Test Product #1", 5, 6), 10);
-        Record testRecord2 = new Record(new Product("Test Product #2", 9, 10), 10);
-        Record testRecord3 = new Record(new Product("Test Product #3", 12, 14), 10);
+        Record testRecord1 = new Record(new Product("Test Product #1", 5, 6), 10, testDate);
+        Record testRecord2 = new Record(new Product("Test Product #2", 9, 10), 10, testDate);
+        Record testRecord3 = new Record(new Product("Test Product #3", 12, 14), 10, testDate);
 
         recordService.removeAllRecordsFromDate(testDate);
 
@@ -50,8 +50,8 @@ public class SimpleRecordServiceTest {
     @Test
     public void addRecordToDateTest() {
         LocalDate testDate = LocalDate.of(2018,1,1);
-        Record testRecord1 = new Record(new Product("Прясно мляко Верея 3%", 1.22, 1.49), 10);
-        Record testRecord2 = new Record(new Product("Кисело мляко Верея 2,9%", 0.90, 1), 12);
+        Record testRecord1 = new Record(new Product("Прясно мляко Верея 3%", 1.22, 1.49), 10, testDate);
+        Record testRecord2 = new Record(new Product("Кисело мляко Верея 2,9%", 0.90, 1), 12, testDate);
         recordService.addRecordToDate(testRecord1, testDate);
         recordService.addRecordToDate(testRecord2, testDate);
 
@@ -66,9 +66,9 @@ public class SimpleRecordServiceTest {
     @Test
     public void removeRecordFromDateTest() {
         LocalDate testDate = LocalDate.of(2014, 1, 1);
-        Record testRecord1 = new Record(new Product("Test Product #1", 5, 6), 10);
-        Record testRecord2 = new Record(new Product("Test Product #2", 9, 10), 10);
-        Record testRecord3 = new Record(new Product("Test Product #3", 12, 14), 10);
+        Record testRecord1 = new Record(new Product("Test Product #1", 5, 6), 10, testDate);
+        Record testRecord2 = new Record(new Product("Test Product #2", 9, 10), 10, testDate);
+        Record testRecord3 = new Record(new Product("Test Product #3", 12, 14), 10, testDate);
 
         recordService.addRecordToDate(testRecord1, testDate);
         recordService.addRecordToDate(testRecord2, testDate);
@@ -86,9 +86,9 @@ public class SimpleRecordServiceTest {
     @Test
     public void removeAllRecordsFromDateTest() {
         LocalDate testDate = LocalDate.of(2012, 1, 1);
-        Record testRecord1 = new Record(new Product("Test Product #1", 5, 6), 10);
-        Record testRecord2 = new Record(new Product("Test Product #2", 9, 10), 10);
-        Record testRecord3 = new Record(new Product("Test Product #3", 12, 14), 10);
+        Record testRecord1 = new Record(new Product("Test Product #1", 5, 6), 10, testDate);
+        Record testRecord2 = new Record(new Product("Test Product #2", 9, 10), 10, testDate);
+        Record testRecord3 = new Record(new Product("Test Product #3", 12, 14), 10, testDate);
 
         recordService.addRecordToDate(testRecord1, testDate);
         recordService.addRecordToDate(testRecord2, testDate);
@@ -105,15 +105,14 @@ public class SimpleRecordServiceTest {
 
     @Test
     public void addRecordsToDateTest() {
-        Record testRecord1 = new Record(new Product("Test Product #1", 5, 6), 10);
-        Record testRecord2 = new Record(new Product("Test Product #2", 9, 10), 10);
-        Record testRecord3 = new Record(new Product("Test Product #3", 12, 14), 10);
+        LocalDate testDate = LocalDate.of(2010, 1, 1);
+        Record testRecord1 = new Record(new Product("Test Product #1", 5, 6), 10, testDate);
+        Record testRecord2 = new Record(new Product("Test Product #2", 9, 10), 10, testDate);
+        Record testRecord3 = new Record(new Product("Test Product #3", 12, 14), 10, testDate);
         List<Record> testRecords = new ArrayList<>();
         testRecords.add(testRecord1);
         testRecords.add(testRecord2);
         testRecords.add(testRecord3);
-
-        LocalDate testDate = LocalDate.of(2010, 1, 1);
 
         List<Record> records = recordService.getAllRecordsForDate(testDate);
         assertTrue("There should be 0 records for this test date", records.size() == 0);
