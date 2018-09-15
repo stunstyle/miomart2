@@ -1,5 +1,7 @@
 package com.stunstyle.miomart2.service;
 
+import com.stunstyle.miomart2.util.SimpleTableNameConstructor;
+import com.stunstyle.miomart2.util.TableNameConstructor;
 import org.junit.Test;
 
 import java.time.LocalDate;
