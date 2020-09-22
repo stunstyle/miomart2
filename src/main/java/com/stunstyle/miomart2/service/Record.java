@@ -1,12 +1,12 @@
 package com.stunstyle.miomart2.service;
 
+import java.time.LocalDate;
+import java.util.Objects;
+
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleObjectProperty;
-
-import java.time.LocalDate;
-import java.util.Objects;
 
 public class Record {
     private final ObjectProperty<Product> product = new SimpleObjectProperty<>(this, "product", null);

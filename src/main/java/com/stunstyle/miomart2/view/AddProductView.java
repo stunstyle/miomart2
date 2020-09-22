@@ -1,12 +1,13 @@
 package com.stunstyle.miomart2.view;
 
+import org.controlsfx.control.textfield.TextFields;
+
 import com.stunstyle.miomart2.presenter.AddProductPresenter;
 import com.stunstyle.miomart2.service.Product;
+
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableSet;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.Scene;
@@ -22,7 +23,6 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
-import org.controlsfx.control.textfield.TextFields;
 
 public class AddProductView extends GridPane {
     private AddProductPresenter presenter;

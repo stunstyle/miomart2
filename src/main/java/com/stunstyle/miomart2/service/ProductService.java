@@ -1,9 +1,9 @@
 package com.stunstyle.miomart2.service;
 
-import com.stunstyle.miomart2.exception.CouldNotAddProductException;
-
 import java.util.List;
 import java.util.Set;
+
+import com.stunstyle.miomart2.exception.CouldNotAddProductException;
 
 public interface ProductService {
     void addProduct(Product product) throws CouldNotAddProductException;

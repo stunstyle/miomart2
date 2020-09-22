@@ -1,10 +1,13 @@
 package com.stunstyle.miomart2.presenter;
 
+import java.time.LocalDate;
+
 import com.stunstyle.miomart2.service.Product;
 import com.stunstyle.miomart2.service.ProductService;
 import com.stunstyle.miomart2.service.Record;
 import com.stunstyle.miomart2.service.RecordService;
 import com.stunstyle.miomart2.view.CreateReportView;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.ObservableSet;
@@ -17,8 +20,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-
-import java.time.LocalDate;
 
 public class CreateReportPresenter {
     private CreateReportView view;

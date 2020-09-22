@@ -1,21 +1,15 @@
 package com.stunstyle.miomart2.view;
 
+import java.time.LocalDate;
+
 import com.stunstyle.miomart2.presenter.PickDatePresenter;
 import com.stunstyle.miomart2.util.SimpleDatePicker;
+
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
-import javafx.scene.control.DateCell;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.layout.GridPane;
-import javafx.scene.paint.Color;
-import javafx.util.Callback;
-import javafx.util.converter.LocalDateStringConverter;
-
-import java.time.DayOfWeek;
-import java.time.LocalDate;
-import java.time.format.FormatStyle;
-import java.util.Locale;
 
 public class PickDateView extends GridPane {
     private PickDatePresenter presenter;

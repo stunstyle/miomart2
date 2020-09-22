@@ -5,6 +5,7 @@ import com.stunstyle.miomart2.service.Product;
 import com.stunstyle.miomart2.service.ProductService;
 import com.stunstyle.miomart2.service.ProductTableUtil;
 import com.stunstyle.miomart2.view.AddProductView;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableSet;
 import javafx.scene.control.TableView;

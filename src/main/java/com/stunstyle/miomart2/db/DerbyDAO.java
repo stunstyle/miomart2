@@ -1,6 +1,11 @@
 package com.stunstyle.miomart2.db;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DatabaseMetaData;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class DerbyDAO implements DAO {
     private static final String DEFAULT_FRAMEWORK = "embedded";

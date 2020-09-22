@@ -1,10 +1,16 @@
 package com.stunstyle.miomart2.presenter;
 
+import java.time.LocalDate;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Set;
+
 import com.stunstyle.miomart2.exception.CouldNotAddProductException;
 import com.stunstyle.miomart2.service.ProductService;
 import com.stunstyle.miomart2.service.Record;
 import com.stunstyle.miomart2.service.RecordService;
 import com.stunstyle.miomart2.view.EditRecordView;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.ObservableSet;
@@ -14,11 +20,6 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
-
-import java.time.LocalDate;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Set;
 
 public class EditRecordPresenter {
     private EditRecordView view;

@@ -1,7 +1,12 @@
 package com.stunstyle.miomart2.view;
 
+import java.time.LocalDate;
+
+import org.controlsfx.control.textfield.TextFields;
+
 import com.stunstyle.miomart2.presenter.CreateReportPresenter;
 import com.stunstyle.miomart2.util.SimpleDatePicker;
+
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableSet;
@@ -14,9 +19,6 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
-import org.controlsfx.control.textfield.TextFields;
-
-import java.time.LocalDate;
 
 public class CreateReportView extends GridPane {
     private CreateReportPresenter presenter;

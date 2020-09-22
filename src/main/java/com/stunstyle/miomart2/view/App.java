@@ -1,6 +1,7 @@
 package com.stunstyle.miomart2.view;
 
 import com.stunstyle.miomart2.presenter.MainPresenter;
+
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;

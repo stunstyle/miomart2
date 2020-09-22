@@ -1,11 +1,12 @@
 package com.stunstyle.miomart2.presenter;
 
+import java.time.LocalDate;
+
 import com.stunstyle.miomart2.view.AboutView;
 import com.stunstyle.miomart2.view.MainView;
+
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
-import java.time.LocalDate;
 
 public class MainPresenter {
     private MainView view;

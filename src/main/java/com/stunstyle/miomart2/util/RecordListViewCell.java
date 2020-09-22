@@ -1,6 +1,7 @@
 package com.stunstyle.miomart2.util;
 
 import com.stunstyle.miomart2.service.Record;
+
 import javafx.scene.control.ListCell;
 
 public class RecordListViewCell extends ListCell<Record> {

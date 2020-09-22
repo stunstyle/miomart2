@@ -1,12 +1,12 @@
 package com.stunstyle.miomart2.service;
 
+import java.sql.Connection;
+import java.util.List;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.cell.PropertyValueFactory;
-
-import java.sql.Connection;
-import java.util.List;
 
 
 public class ProductTableUtil {

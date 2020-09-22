@@ -1,8 +1,8 @@
 package com.stunstyle.miomart2.view;
 
 import com.stunstyle.miomart2.presenter.MainPresenter;
+
 import javafx.application.Platform;
-import javafx.event.EventHandler;
 import javafx.scene.Node;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;

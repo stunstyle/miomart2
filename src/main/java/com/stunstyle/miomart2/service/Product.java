@@ -1,11 +1,11 @@
 package com.stunstyle.miomart2.service;
 
+import java.util.Objects;
+
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
-
-import java.util.Objects;
 
 public class Product {
     private final StringProperty name
