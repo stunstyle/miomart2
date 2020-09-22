@@ -1,13 +1,13 @@
 package com.stunstyle.miomart2.service;
 
-import com.stunstyle.miomart2.util.SimpleTableNameConstructor;
-import com.stunstyle.miomart2.util.TableNameConstructor;
-import org.junit.Test;
-
 import java.time.LocalDate;
 import java.time.Month;
 
-import static org.junit.Assert.*;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+
+import com.stunstyle.miomart2.util.SimpleTableNameConstructor;
+import com.stunstyle.miomart2.util.TableNameConstructor;
 
 public class SimpleTableNameConstructorTest {
 
@@ -17,8 +17,8 @@ public class SimpleTableNameConstructorTest {
     public void constructTableNameFromStringTest() {
         LocalDate testDate_November_2017 = LocalDate.of(2017, Month.NOVEMBER, 1);
         LocalDate testDate_December_1999 = LocalDate.of(1999, Month.DECEMBER, 15);
-        assertTrue("Should be NOVEMBER_2017", constructor.constructTableNameFromDate(testDate_November_2017).equals("NOVEMBER_2017"));
-        assertTrue("Should be DECEMBER_1999", constructor.constructTableNameFromDate(testDate_December_1999).equals("DECEMBER_1999"));
+        Assertions.assertTrue(constructor.constructTableNameFromDate(testDate_November_2017).equals("NOVEMBER_2017"), "Should be NOVEMBER_2017");
+        Assertions.assertTrue(constructor.constructTableNameFromDate(testDate_December_1999).equals("DECEMBER_1999"), "Should be DECEMBER_1999");
 
     }
 

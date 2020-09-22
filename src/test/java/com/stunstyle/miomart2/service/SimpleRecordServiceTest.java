@@ -1,9 +1,5 @@
 package com.stunstyle.miomart2.service;
 
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
-import org.junit.Test;
-
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -14,14 +10,17 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
-import static org.junit.Assert.*;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 
 
 public class SimpleRecordServiceTest {
     private static RecordService recordService;
     private static final String TEST_DB_NAME = "RECORD_SERVICE_TEST_DB";
 
-    @BeforeClass
+    @BeforeAll
     public static void setUpClass() {
         recordService = SimpleRecordService.getInstance(TEST_DB_NAME);
     }
@@ -40,11 +39,11 @@ public class SimpleRecordServiceTest {
         recordService.addRecordToDate(testRecord3, testDate);
 
         List<Record> records = recordService.getAllRecordsForDate(testDate);
-        assertTrue("Should contain test #1", records.contains(testRecord1));
-        assertTrue("Should contain test #2", records.contains(testRecord2));
-        assertTrue("Should contain test #3", records.contains(testRecord3));
+        Assertions.assertTrue(records.contains(testRecord1), "Should contain test #1");
+        Assertions.assertTrue(records.contains(testRecord2), "Should contain test #2");
+        Assertions.assertTrue(records.contains(testRecord3), "Should contain test #3");
 
-        assertTrue("Should only contain 3 records", records.size() == 3);
+        Assertions.assertTrue( records.size() == 3, "Should only contain 3 records");
     }
 
     @Test
@@ -57,8 +56,8 @@ public class SimpleRecordServiceTest {
 
         List<Record> records = recordService.getAllRecordsForDate(testDate);
 
-        assertTrue("List should contain the first record we added", records.contains(testRecord1));
-        assertTrue("List should contain the second record we added", records.contains(testRecord2));
+        Assertions.assertTrue(records.contains(testRecord1), "List should contain the first record we added");
+        Assertions.assertTrue(records.contains(testRecord2), "List should contain the second record we added");
 
         recordService.removeAllRecordsFromDate(testDate);
     }
@@ -75,12 +74,12 @@ public class SimpleRecordServiceTest {
         recordService.addRecordToDate(testRecord3, testDate);
 
         List<Record> records = recordService.getAllRecordsForDate(testDate);
-        assertTrue("There should be 3 records for this test date", records.size() == 3);
+        Assertions.assertTrue(records.size() == 3, "There should be 3 records for this test date");
 
         recordService.removeRecordFromDate(testRecord2, testDate);
         records = recordService.getAllRecordsForDate(testDate);
-        assertTrue("There should now be 2 records for this test date", records.size() == 2);
-        assertFalse("Record2 should not be present for this date at the moment", records.contains(testRecord2));
+        Assertions.assertTrue(records.size() == 2, "There should now be 2 records for this test date");
+        Assertions.assertFalse(records.contains(testRecord2), "Record2 should not be present for this date at the moment");
     }
 
     @Test
@@ -95,11 +94,11 @@ public class SimpleRecordServiceTest {
         recordService.addRecordToDate(testRecord3, testDate);
 
         List<Record> records = recordService.getAllRecordsForDate(testDate);
-        assertTrue("There should now be 3 records for this test date", records.size() == 3);
+        Assertions.assertTrue(records.size() == 3, "There should now be 3 records for this test date");
 
         recordService.removeAllRecordsFromDate(testDate);
         records = recordService.getAllRecordsForDate(testDate);
-        assertTrue("There should now be no records for this test date", records.size() == 0);
+        Assertions.assertTrue(records.size() == 0, "There should now be no records for this test date");
     }
 
 
@@ -115,16 +114,16 @@ public class SimpleRecordServiceTest {
         testRecords.add(testRecord3);
 
         List<Record> records = recordService.getAllRecordsForDate(testDate);
-        assertTrue("There should be 0 records for this test date", records.size() == 0);
+        Assertions.assertTrue(records.size() == 0, "There should be 0 records for this test date");
 
         recordService.addRecordsToDate(testRecords, testDate);
         records = recordService.getAllRecordsForDate(testDate);
-        assertTrue("There should now be 3 records for this test date",records.size() == 3);
+        Assertions.assertTrue(records.size() == 3, "There should now be 3 records for this test date");
 
     }
 
     // TODO: fix getLatestPrice methods and test them
-    @AfterClass
+    @AfterAll
     public static void tearDownClass() {
         Path dbFolder = Paths.get(TEST_DB_NAME);
         try {

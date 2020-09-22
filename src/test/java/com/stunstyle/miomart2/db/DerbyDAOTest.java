@@ -1,9 +1,5 @@
 package com.stunstyle.miomart2.db;
 
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
-import org.junit.Test;
-
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -13,13 +9,17 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.Comparator;
 
-import static org.junit.Assert.*;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
+
 
 public class DerbyDAOTest {
     private static final String TEST_DB_NAME = "DAO_TEST_DB";
     private static DAO dao;
 
-    @BeforeClass
+    @BeforeAll
     public static void setUpClass() {
         dao = new DerbyDAO(TEST_DB_NAME);
     }
@@ -28,7 +28,7 @@ public class DerbyDAOTest {
     public void getConnectionTest() {
         try {
             Connection conn = dao.getConnection();
-            assertNotNull("Connection should not be null!", conn);
+            Assertions.assertNotNull(conn, "Connection should not be null!");
         } catch (SQLException e) {
             System.err.println("Exception while testing getConnection()!");
             e.printStackTrace();
@@ -39,7 +39,7 @@ public class DerbyDAOTest {
     public void setupTablesTest() {
         try {
             dao.setupTables();
-            assertTrue(dao.tableExists("PRODUCT"));
+            Assertions.assertTrue(dao.tableExists("PRODUCT"));
         } catch (SQLException e) {
             System.err.println("Error while testing setupTables!");
             e.printStackTrace();
@@ -50,14 +50,14 @@ public class DerbyDAOTest {
     public void tableExistsTest() {
         try {
             dao.getConnection().prepareStatement("CREATE TABLE TEST_TABLE ( Test VARCHAR(50) )").execute();
-            assertTrue("Table TEST_TABLE should exist!", dao.tableExists("TEST_TABLE"));
+            Assertions.assertTrue(dao.tableExists("TEST_TABLE"), "Table TEST_TABLE should exist!");
         } catch (SQLException e) {
             System.err.println("Error while testing tableExists!");
             e.printStackTrace();
         }
     }
 
-    @AfterClass
+    @AfterAll
     public static void tearDownClass() {
         try {
             Path dbFolder = Paths.get(TEST_DB_NAME);
