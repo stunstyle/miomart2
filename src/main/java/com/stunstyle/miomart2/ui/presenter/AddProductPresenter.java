@@ -1,10 +1,10 @@
-package com.stunstyle.miomart2.presenter;
+package com.stunstyle.miomart2.ui.presenter;
 
 import com.stunstyle.miomart2.exception.CouldNotAddProductException;
 import com.stunstyle.miomart2.service.Product;
 import com.stunstyle.miomart2.service.ProductService;
 import com.stunstyle.miomart2.service.ProductTableUtil;
-import com.stunstyle.miomart2.view.AddProductView;
+import com.stunstyle.miomart2.ui.view.AddProductView;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableSet;

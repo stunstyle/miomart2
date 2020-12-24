@@ -1,9 +1,9 @@
-package com.stunstyle.miomart2.view;
+package com.stunstyle.miomart2.ui.view;
 
 import java.time.LocalDate;
 
-import com.stunstyle.miomart2.presenter.PickDatePresenter;
-import com.stunstyle.miomart2.util.SimpleDatePicker;
+import com.stunstyle.miomart2.ui.presenter.PickDatePresenter;
+import com.stunstyle.miomart2.ui.util.SimpleDatePicker;
 
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;

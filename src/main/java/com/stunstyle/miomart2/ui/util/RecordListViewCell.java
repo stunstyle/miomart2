@@ -1,4 +1,4 @@
-package com.stunstyle.miomart2.util;
+package com.stunstyle.miomart2.ui.util;
 
 import com.stunstyle.miomart2.service.Record;
 

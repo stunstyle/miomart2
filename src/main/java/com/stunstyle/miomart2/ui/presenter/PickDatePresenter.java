@@ -1,6 +1,6 @@
-package com.stunstyle.miomart2.presenter;
+package com.stunstyle.miomart2.ui.presenter;
 
-import com.stunstyle.miomart2.view.PickDateView;
+import com.stunstyle.miomart2.ui.view.PickDateView;
 
 public class PickDatePresenter {
     private PickDateView view;

@@ -1,11 +1,11 @@
-package com.stunstyle.miomart2.view;
+package com.stunstyle.miomart2.ui.view;
 
 import java.time.LocalDate;
 
 import org.controlsfx.control.textfield.TextFields;
 
-import com.stunstyle.miomart2.presenter.CreateReportPresenter;
-import com.stunstyle.miomart2.util.SimpleDatePicker;
+import com.stunstyle.miomart2.ui.presenter.CreateReportPresenter;
+import com.stunstyle.miomart2.ui.util.SimpleDatePicker;
 
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;

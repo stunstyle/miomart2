@@ -11,8 +11,8 @@ import java.util.List;
 
 import com.stunstyle.miomart2.db.DAO;
 import com.stunstyle.miomart2.db.DerbyDAO;
-import com.stunstyle.miomart2.util.SimpleTableNameConstructor;
-import com.stunstyle.miomart2.util.TableNameConstructor;
+import com.stunstyle.miomart2.ui.util.SimpleTableNameConstructor;
+import com.stunstyle.miomart2.ui.util.TableNameConstructor;
 
 public class SimpleRecordService implements RecordService {
     private DAO dao;

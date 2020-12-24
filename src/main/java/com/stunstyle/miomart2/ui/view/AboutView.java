@@ -1,6 +1,6 @@
-package com.stunstyle.miomart2.view;
+package com.stunstyle.miomart2.ui.view;
 
-import com.stunstyle.miomart2.presenter.AboutPresenter;
+import com.stunstyle.miomart2.ui.presenter.AboutPresenter;
 
 import javafx.geometry.Insets;
 import javafx.scene.layout.BorderPane;
