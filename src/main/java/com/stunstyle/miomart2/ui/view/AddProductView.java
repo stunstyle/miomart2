@@ -1,8 +1,8 @@
-package com.stunstyle.miomart2.view;
+package com.stunstyle.miomart2.ui.view;
 
 import org.controlsfx.control.textfield.TextFields;
 
-import com.stunstyle.miomart2.presenter.AddProductPresenter;
+import com.stunstyle.miomart2.ui.presenter.AddProductPresenter;
 import com.stunstyle.miomart2.service.Product;
 
 import javafx.beans.value.ChangeListener;

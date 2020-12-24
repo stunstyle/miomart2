@@ -1,4 +1,4 @@
-package com.stunstyle.miomart2.view;
+package com.stunstyle.miomart2.ui.view;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -7,7 +7,7 @@ import java.util.Optional;
 
 import org.controlsfx.control.textfield.TextFields;
 
-import com.stunstyle.miomart2.presenter.EditRecordPresenter;
+import com.stunstyle.miomart2.ui.presenter.EditRecordPresenter;
 import com.stunstyle.miomart2.service.Product;
 import com.stunstyle.miomart2.service.Record;
 

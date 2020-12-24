@@ -1,4 +1,4 @@
-package com.stunstyle.miomart2.presenter;
+package com.stunstyle.miomart2.ui.presenter;
 
 import java.time.LocalDate;
 
@@ -6,7 +6,7 @@ import com.stunstyle.miomart2.service.Product;
 import com.stunstyle.miomart2.service.ProductService;
 import com.stunstyle.miomart2.service.Record;
 import com.stunstyle.miomart2.service.RecordService;
-import com.stunstyle.miomart2.view.CreateReportView;
+import com.stunstyle.miomart2.ui.view.CreateReportView;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;

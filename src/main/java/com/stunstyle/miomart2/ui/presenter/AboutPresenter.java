@@ -1,6 +1,6 @@
-package com.stunstyle.miomart2.presenter;
+package com.stunstyle.miomart2.ui.presenter;
 
-import com.stunstyle.miomart2.view.AboutView;
+import com.stunstyle.miomart2.ui.view.AboutView;
 
 public class AboutPresenter {
     private AboutView view;

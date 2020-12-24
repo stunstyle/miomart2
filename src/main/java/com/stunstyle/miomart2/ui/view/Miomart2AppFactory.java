@@ -1,11 +1,11 @@
-package com.stunstyle.miomart2.view;
+package com.stunstyle.miomart2.ui.view;
 
-import com.stunstyle.miomart2.presenter.AboutPresenter;
-import com.stunstyle.miomart2.presenter.AddProductPresenter;
-import com.stunstyle.miomart2.presenter.CreateReportPresenter;
-import com.stunstyle.miomart2.presenter.EditRecordPresenter;
-import com.stunstyle.miomart2.presenter.MainPresenter;
-import com.stunstyle.miomart2.presenter.PickDatePresenter;
+import com.stunstyle.miomart2.ui.presenter.AboutPresenter;
+import com.stunstyle.miomart2.ui.presenter.AddProductPresenter;
+import com.stunstyle.miomart2.ui.presenter.CreateReportPresenter;
+import com.stunstyle.miomart2.ui.presenter.EditRecordPresenter;
+import com.stunstyle.miomart2.ui.presenter.MainPresenter;
+import com.stunstyle.miomart2.ui.presenter.PickDatePresenter;
 import com.stunstyle.miomart2.service.ProductService;
 import com.stunstyle.miomart2.service.RecordService;
 import com.stunstyle.miomart2.service.SimpleProductService;

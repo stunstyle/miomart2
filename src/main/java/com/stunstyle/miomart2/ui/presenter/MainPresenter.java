@@ -1,12 +1,14 @@
-package com.stunstyle.miomart2.presenter;
+package com.stunstyle.miomart2.ui.presenter;
 
 import java.time.LocalDate;
 
-import com.stunstyle.miomart2.view.AboutView;
-import com.stunstyle.miomart2.view.MainView;
+import com.stunstyle.miomart2.ui.view.AboutView;
+import com.stunstyle.miomart2.ui.view.MainView;
 
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class MainPresenter {
     private MainView view;
@@ -15,6 +17,8 @@ public class MainPresenter {
     private EditRecordPresenter editRecordPresenter;
     private AboutPresenter aboutPresenter;
     private CreateReportPresenter createReportPresenter;
+
+    private Logger logger = LogManager.getLogger(MainPresenter.class);
 
     public MainPresenter(MainView view) {
         this.view = view;
@@ -50,6 +54,7 @@ public class MainPresenter {
     }
 
     public void showAddProduct() {
+        logger.info("Showing AddProductView");
         view.setContent(addProductPresenter.getView());
     }
 
@@ -60,7 +65,7 @@ public class MainPresenter {
     public void showAbout() {
         Stage aboutStage = new Stage();
         aboutStage.setTitle("За miomart2");
-
+        logger.info("Showing about view");
         Scene aboutScene = new Scene(new AboutView(), 480, 272);
         aboutStage.setScene(aboutScene);
         aboutStage.showAndWait();

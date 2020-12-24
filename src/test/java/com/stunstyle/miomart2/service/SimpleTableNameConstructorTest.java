@@ -6,8 +6,8 @@ import java.time.Month;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import com.stunstyle.miomart2.util.SimpleTableNameConstructor;
-import com.stunstyle.miomart2.util.TableNameConstructor;
+import com.stunstyle.miomart2.ui.util.SimpleTableNameConstructor;
+import com.stunstyle.miomart2.ui.util.TableNameConstructor;
 
 public class SimpleTableNameConstructorTest {
 
