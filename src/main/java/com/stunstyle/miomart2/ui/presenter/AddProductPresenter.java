@@ -4,10 +4,12 @@ import com.stunstyle.miomart2.exception.CouldNotAddProductException;
 import com.stunstyle.miomart2.service.Product;
 import com.stunstyle.miomart2.service.ProductService;
 import com.stunstyle.miomart2.service.ProductTableUtil;
+import com.stunstyle.miomart2.ui.component.InfoAlert;
 import com.stunstyle.miomart2.ui.view.AddProductView;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableSet;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TableView;
 
 public class AddProductPresenter {
@@ -36,7 +38,8 @@ public class AddProductPresenter {
             view.setAddResultTextValue("Неуспешно добавяне!");
             e.printStackTrace();
         }
-        view.setAddResultTextValue("Успешно добавяне!");
+        Alert successAlert = new InfoAlert("Информация", String.format("Успешно добавяне на %s с цени %s, %s", toAdd.getName(), String.valueOf(toAdd.getBuyingPrice()), String.valueOf(toAdd.getSellingPrice())));
+        successAlert.showAndWait();
     }
 
     public void deleteProduct() {
