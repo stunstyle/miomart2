@@ -7,4 +7,8 @@ public class CouldNotAddProductException extends Exception {
     public CouldNotAddProductException(String msg) {
         super(msg);
     }
+
+    public CouldNotAddProductException(String msg, Throwable cause) {
+        super(msg, cause);
+    }
 }
