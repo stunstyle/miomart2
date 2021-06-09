@@ -4,6 +4,7 @@ import com.stunstyle.miomart2.exception.CouldNotAddProductException;
 import com.stunstyle.miomart2.service.Product;
 import com.stunstyle.miomart2.service.ProductService;
 import com.stunstyle.miomart2.service.ProductTableUtil;
+import com.stunstyle.miomart2.ui.component.ErrorAlert;
 import com.stunstyle.miomart2.ui.component.InfoAlert;
 import com.stunstyle.miomart2.ui.view.AddProductView;
 
@@ -33,13 +34,12 @@ public class AddProductPresenter {
         Product toAdd = new Product(view.getProductToAddName(), view.getProductToAddBuyingPrice(), view.getProductToAddSellingPrice());
         try {
             productService.addProduct(toAdd);
+            Alert successAlert = new InfoAlert("Информация", String.format("Успешно добавяне на %s с цени %s, %s", toAdd.getName(), String.valueOf(toAdd.getBuyingPrice()), String.valueOf(toAdd.getSellingPrice())));
+            successAlert.showAndWait();
         } catch (CouldNotAddProductException e) {
-            System.err.println("Can't add product!");
-            view.setAddResultTextValue("Неуспешно добавяне!");
-            e.printStackTrace();
+            Alert errorAlert = new ErrorAlert("Грешка", String.format("%s: %s", e.getMessage(), e.getCause() == null ? "" : e.getCause().getMessage()));
+            errorAlert.showAndWait();
         }
-        Alert successAlert = new InfoAlert("Информация", String.format("Успешно добавяне на %s с цени %s, %s", toAdd.getName(), String.valueOf(toAdd.getBuyingPrice()), String.valueOf(toAdd.getSellingPrice())));
-        successAlert.showAndWait();
     }
 
     public void deleteProduct() {

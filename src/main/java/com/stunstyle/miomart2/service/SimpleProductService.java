@@ -52,7 +52,7 @@ public class SimpleProductService implements ProductService {
                 ps_insert.executeUpdate();
             }
         } catch (SQLException e) {
-            throw new CouldNotAddProductException("Could not add product to DB!");
+            throw new CouldNotAddProductException("Could not add product to DB!", e);
         }
     }
 
