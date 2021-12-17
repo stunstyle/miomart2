@@ -23,6 +23,11 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 import javafx.stage.Stage;
+import org.controlsfx.validation.Severity;
+import org.controlsfx.validation.ValidationSupport;
+import org.controlsfx.validation.Validator;
+
+import java.util.regex.Pattern;
 
 public class AddProductView extends GridPane {
     private AddProductPresenter presenter;
@@ -100,7 +105,18 @@ public class AddProductView extends GridPane {
             productToAddName.requestFocus();
         });
 
+        registerValidators();
         productToAddName.textProperty().addListener((observableValue, s, t1) -> addResultText.setText(""));
+        productToAddBuyingPrice.textProperty().addListener((observableValue, oldValue, newValue) -> {
+            if (!newValue.matches("\\d*(\\.\\d*)?")) {
+                productToAddBuyingPrice.setText(oldValue);
+            }
+        });
+        productToAddSellingPrice.textProperty().addListener((observableValue, oldValue, newValue) -> {
+            if (!newValue.matches("\\d*(\\.\\d*)?")) {
+                productToAddSellingPrice.setText(oldValue);
+            }
+        });
         /* NOT YET SURE IF NECESSARY FOR THIS VIEW
         addBtn.addEventHandler(KeyEvent.KEY_PRESSED, new EventHandler<KeyEvent>() {
             @Override
@@ -164,6 +180,13 @@ public class AddProductView extends GridPane {
 
         productDeletedStatus = new Text("");
         this.add(productDeletedStatus, 4, 8);
+    }
+
+    private void registerValidators() {
+        ValidationSupport validationSupport = new ValidationSupport();
+        validationSupport.registerValidator(productToAddName, Validator.createEmptyValidator("Text is required MF"));
+        validationSupport.registerValidator(productToAddBuyingPrice, Validator.createRegexValidator("WTF", Pattern.compile("\\d*(\\.\\d*)?"), Severity.ERROR));
+        validationSupport.registerValidator(productToAddSellingPrice, Validator.createRegexValidator("WTF", Pattern.compile("\\d*(\\.\\d*)?"), Severity.ERROR));
     }
 
     public String getProductToAddName() {
