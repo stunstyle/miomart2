@@ -16,6 +16,10 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.source>11</maven.compiler.source>
 		<maven.compiler.target>11</maven.compiler.target>
+
+		<versionLog4j>2.16.0</versionLog4j>
+		<versionDerby>10.14.2.0</versionDerby>
+		<versionControlsfx>11.0.0</versionControlsfx>
 	</properties>
 
 	<dependencies>
@@ -30,7 +34,7 @@
 		<dependency>
 			<groupId>org.apache.derby</groupId>
 			<artifactId>derby</artifactId>
-			<version>10.14.2.0</version>
+			<version>${versionDerby}</version>
 		</dependency>
 
 		<!-- https://mvnrepository.com/artifact/org.controlsfx/controlsfx -->
@@ -38,19 +42,19 @@
 		<dependency>
 			<groupId>org.controlsfx</groupId>
 			<artifactId>controlsfx</artifactId>
-			<version>11.0.0</version>
+			<version>${versionControlsfx}</version>
 		</dependency>
 
 		<dependency>
 			<groupId>org.apache.logging.log4j</groupId>
 			<artifactId>log4j-api</artifactId>
-			<version>2.14.0</version>
+			<version>${versionLog4j}</version>
 		</dependency>
 
 		<dependency>
 			<groupId>org.apache.logging.log4j</groupId>
 			<artifactId>log4j-core</artifactId>
-			<version>2.14.0</version>
+			<version>${versionLog4j}</version>
 		</dependency>
     
     
