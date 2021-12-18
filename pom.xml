@@ -17,7 +17,7 @@
 		<maven.compiler.source>11</maven.compiler.source>
 		<maven.compiler.target>11</maven.compiler.target>
 
-		<versionLog4j>2.16.0</versionLog4j>
+		<versionLog4j>2.17.0</versionLog4j>
 		<versionDerby>10.14.2.0</versionDerby>
 		<versionControlsfx>11.0.0</versionControlsfx>
 	</properties>
