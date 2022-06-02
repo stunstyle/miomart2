@@ -12,11 +12,14 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableSet;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TableView;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class AddProductPresenter {
     private AddProductView view;
     private MainPresenter mainPresenter;
     private ProductService productService;
+    private Logger logger = LogManager.getLogger(AddProductPresenter.class);
 
     public AddProductPresenter(AddProductView view, MainPresenter mainPresenter, ProductService productService) {
         this.view = view;
@@ -31,12 +34,13 @@ public class AddProductPresenter {
 
 
     public void addProduct() {
-        Product toAdd = new Product(view.getProductToAddName(), view.getProductToAddBuyingPrice(), view.getProductToAddSellingPrice());
         try {
+            Product toAdd = new Product(view.getProductToAddName(), view.getProductToAddBuyingPrice(), view.getProductToAddSellingPrice());
             productService.addProduct(toAdd);
             Alert successAlert = new InfoAlert("Информация", String.format("Успешно добавяне на %s с цени %s, %s", toAdd.getName(), String.valueOf(toAdd.getBuyingPrice()), String.valueOf(toAdd.getSellingPrice())));
             successAlert.showAndWait();
-        } catch (CouldNotAddProductException e) {
+        } catch (Exception e) {
+            logger.warn(e);
             Alert errorAlert = new ErrorAlert("Грешка", String.format("%s: %s", e.getMessage(), e.getCause() == null ? "" : e.getCause().getMessage()));
             errorAlert.showAndWait();
         }
